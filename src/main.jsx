@@ -6,6 +6,7 @@ import { Provider, useDispatch, useSelector } from 'react-redux'
 import store from './redux/store.js'
 import { decrease, increase_ } from './redux/actions/counter.js';
 import { getContacts } from './redux/actions/contacts.js';
+import Home from './screens/Home.jsx';
 // import './index.css'
 
 function Counter() {
@@ -51,6 +52,6 @@ function App() {
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
-    <App/>
+    <Home/>
   </Provider>,
 )
