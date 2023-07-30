@@ -1,6 +1,6 @@
-import { combineReducers } from "redux";
 import countReducer from "./counter";
 import contactsReducer from "./contacts";
+import { combineReducers } from "@reduxjs/toolkit";
 
 
 const appReducer = combineReducers({

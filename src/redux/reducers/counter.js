@@ -1,27 +1,33 @@
-import { COUNTER_INCREMENT,COUNTER_DECREMENT,COUNTER_INCREMENT_,COUNTER_DECREMENT_ } from "../actions";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   count: 0,
 };
-export default function countReducer(state = initialState, action) {
-  switch (action.type) {
-    case COUNTER_INCREMENT:
-      return {
-        count: state.count + 1,
-      };
-    case COUNTER_DECREMENT:
+
+const countSlice = createSlice({
+  name: "count",
+  initialState,
+  reducers: {
+    increase(state) {
+      return { count: state.count+1 }
+    },
+    decrease(state) {
       return {
         count: state.count - 1,
       };
-    case COUNTER_INCREMENT_:
+    },
+    increase_(state,action){
       return {
-        count: state.count + action.payload.data,
+        count: state.count + action.payload,
       };
-    case COUNTER_DECREMENT_:
+    },
+    decrease_(state,action){
       return {
         count: state.count - action.payload,
       };
-    default:
-      return state;
+    }
   }
-}
+});
+
+export const {increase,decrease,increase_,decrease_} = countSlice.actions;
+export default countSlice.reducer;
